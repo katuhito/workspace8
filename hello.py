@@ -1,4 +1,5 @@
 from flask import Flask
+# from jinja2 import escape
 
 # Flaskのインスタンスを作成
 app = Flask(__name__)
