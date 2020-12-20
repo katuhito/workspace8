@@ -58,7 +58,7 @@ def remove_fav(user_id):
 @app.route('/write') #--10
 @user.login_required
 def write():
-    return render_template('write_from.html',
+    return render_template('write_form.html',
             id=user.get_id())
 
 @app.route('/write/try', methods=['POST']) #--11
@@ -85,8 +85,7 @@ def staticfile_cp(fname):
 # 改行を有効にするフィルターを追加
 @app.template_filter('linebreak')
 def linebreak_filter(s):
-    s = s.replace('&', '&amp;').replace('<', '&lt') \
-        .replace('>', '&gt;').replace('\n', '<br>')
+    s = s.replace('&', '&amp;').replace('<', '&lt').replace('>', '&gt;').replace('\n', '<br>')
     return Markup(s)
 
 # 日付をフォーマットするフィルターを追加

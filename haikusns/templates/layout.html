@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/side-menu.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+        <title>俳句SNS</title>    
+    </head>
+    <body>
+        <div id="layout" class="page">
+            {% block header %}
+            <!-- ここにヘッダーの内容 -->
+            {% endblock %}
+            <div id="main">
+                <div class="header">
+                    <h1>
+                        {% block title %}
+                        俳句SNS
+                        {% endblock %}
+                    </h1>
+                </div><!-- end of .header -->
+
+                <div class="contents">
+                    {% block contents %}
+                    <!-- ここにメインコンテンツ -->
+                    {% endblock %}
+                </div><!-- end of .contents-->
+
+                {% block footer %}
+                    <p class="footer"><a href="/" class="pure-button">トップページへ</a></p>
+                {% endblock %}
+
+            </div><!-- end of #main -->
+        </div><!-- end of #layout -->
+        {% block footer_script %}{% endblock %}
+    </body>
+</html>

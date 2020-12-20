@@ -1,6 +1,6 @@
 # ログインなどユーザに関する処理をまとめる
 from flask import Flask, session, redirect
-from functions import wraps
+from functools import wraps
 
 # ユーザーとパスワードの一覧
 USER_LOGIN_LIST = {
@@ -13,7 +13,7 @@ USER_LOGIN_LIST = {
 }
 
 # ログインしているかの確認
-def is_login(form):
+def is_login():
     return 'login' in session
 
 # ログインを試行する
@@ -42,9 +42,8 @@ def try_logout():
 # ログイン必須を処理するデコレータを定義
 def login_required(func):
     @wraps(func)
-    def wrapper(*args, **kargs):
+    def wrapper(*args, **kwargs):
         if not is_login():
             return redirect('/login')
         return func(*args, **kwargs)
     return wrapper
-    
