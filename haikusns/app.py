@@ -85,13 +85,13 @@ def staticfile_cp(fname):
 # 改行を有効にするフィルターを追加
 @app.template_filter('linebreak')
 def linebreak_filter(s):
-    s = s.replace('&', '&amp;').replace('<', '&lt').replace('>', '&gt;').replace('\n', '<br>')
+    s = s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br>')
     return Markup(s)
 
 # 日付をフォーマットするフィルターを追加
 @app.template_filter('datestr')
 def datestr_filter(s):
-    return time.strftime('%Y 年 %m 月 %d 日', time.localtime(s))
+    return time.strftime('%Y年%m月%d日', time.localtime(s))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
