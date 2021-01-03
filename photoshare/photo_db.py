@@ -77,6 +77,7 @@ def get_album_files(album_id):
     return select('''
         SELECT * FROM files WHERE album_id=?
         ORDER BY file_id DESC''', album_id)
+        
 
 # ユーザーのファイル一覧を作る
 def get_user_files(user_id):
